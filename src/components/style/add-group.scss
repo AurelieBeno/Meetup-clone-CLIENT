@@ -1,0 +1,71 @@
+@import "Colours.scss";
+.GroupDetails-container,
+.personalDetails-container {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+
+  form {
+    // background-color: blue;
+    margin-top: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    h1 {
+      margin: 0 auto;
+      // font-family: "FuturaPTWeb-Book";
+      font-size: 1.7rem;
+      letter-spacing: 1.2px;
+      padding-bottom: 20px;
+    }
+    label {
+      // font-family: "FuturaPTWeb-Bold";
+      margin: 10px auto;
+      font-size: 0.9rem;
+    }
+    input {
+      padding: 10px 0;
+      text-align: center;
+      border: 1px solid rgb(134, 133, 133);
+      border-radius: 50px;
+    }
+    button {
+      padding: 7px 0;
+      width: 50%;
+      background-color: #d01031;
+      color: white;
+      margin: 20px auto;
+      border-radius: 50px;
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      letter-spacing: 1.2px;
+    }
+  }
+}
+.btn--modal {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Roboto" sans-serif;
+}
+.second {
+  @include flexCenter(column, center);
+  // background-color: orange;
+  .description-container {
+    @include flexCenter(column, center);
+    // background-color: green;
+    width: 100%;
+    padding-bottom: 20px;
+    text-transform: capitalize;
+    textarea {
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      height: 60px;
+      width: 100%;
+    }
+  }
+}
+.category-container {
+  @include flexCenter(column, center);
+  padding-bottom: 20px;
+  text-transform: capitalize;
+}

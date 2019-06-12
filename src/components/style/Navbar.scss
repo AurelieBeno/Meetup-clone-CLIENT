@@ -1,0 +1,132 @@
+@import "Colours.scss";
+.headerNav-container {
+  display: flex;
+  height: 100%;
+}
+.App-header {
+  background-color: #eceff3;
+  height: 13vh;
+  width: 100%;
+}
+.navBarContainer {
+  @include flexCenter(row, space-between);
+
+  font-family: "Roboto" sans-serif;
+  letter-spacing: 1px;
+  margin: 0 10px;
+  height: 100%;
+  width: 100%;
+  .redColor {
+    color: #f76868 !important;
+    font-size: 1.85rem;
+  }
+  .NoneLine {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.55);
+    font-family: "Roboto" sans-serif;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    font-size: 1.62rem;
+  }
+  .nodeLine a:focus {
+    font-size: 1.65rem;
+    color: purple;
+    cursor: pointer;
+  }
+  .Nav-list-container {
+    display: flex;
+    justify-items: center;
+    li {
+      // font-family: "FuturaPTWeb-Bold";
+      padding-right: 12px;
+    }
+  }
+}
+.Nav-list-container-user {
+  display: flex;
+  letter-spacing: 0.8px;
+  font-family: "Roboto";
+  .logout-btn {
+    text-decoration: none;
+    font-size: 1.65rem;
+    letter-spacing: 0.8px;
+    font-family: "Roboto";
+  }
+}
+.nav-style-user {
+  position: relative;
+}
+.setting-user--button {
+  background-color: grey;
+  padding: 8px;
+  border-radius: 555px;
+  border: 1px solid rgb(184, 180, 180);
+  .user--setting {
+    color: white;
+  }
+}
+.logoContainer {
+  width: 50%;
+  @include flexCenter(row, space-between);
+  align-items: center;
+  height: 80%;
+}
+.groupBtn {
+  height: 100%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  .redColor {
+    line-height: 1.19;
+    border-right: 1.2px solid rgb(172, 165, 165);
+    span {
+      display: flex;
+      text-align: center;
+    }
+  }
+}
+.dropdown-container {
+  top: 43px;
+  left: -320px;
+  justify-content: space-between;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+#nav-profile--dropdownMenu {
+  ::before {
+    left: 470px;
+  }
+  width: 350px;
+  padding: 0;
+  margin-top: 12px;
+  right: 14px;
+}
+.popup-bubble {
+  :after {
+    border-bottom: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    height: 0;
+    top: -9px;
+    width: 0;
+  }
+}
+.popup-bubble {
+  ::after {
+    content: "";
+    position: absolute;
+    z-index: 11;
+  }
+}
+.popup-bubble--right {
+  :after {
+    right: 9px;
+  }
+}
+
+.dropdown .dropdown-menu {
+  box-shadow: rgba(0, 0, 0, 0.54) 0 3px 8px 0;
+  min-width: auto;
+  top: auto;
+  right: 0;
+}

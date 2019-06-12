@@ -1,0 +1,19 @@
+@import "Colours.scss";
+
+.likeAndComment-container {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  // background-color: violet;
+  .like-container,
+  .unlike-container {
+    width: 50%;
+    .like,
+    .Unlike {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      background-color: $color-viridian;
+    }
+  }
+}

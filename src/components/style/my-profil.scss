@@ -1,0 +1,84 @@
+@import "Colours";
+
+.myProfil-container {
+  background-color: #fafafa;
+  font-family: "Roboto", sans-serif;
+  padding-top: 20px;
+  // border: 1px solid rgbd(0, 0, 0, 0.4);
+
+  p {
+    font-size: 14px;
+  }
+  span {
+    font-size: 12px;
+  }
+}
+.profil-container--margin {
+  background-color: white;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  padding-top: 15px;
+}
+.left-container {
+  width: 70%;
+}
+.right-container {
+  width: 30%;
+  text-align: center;
+
+  .photo-container {
+    display: flex;
+    flex-direction: column;
+    // background-color: blue;
+    align-items: center;
+    img {
+      width: 65px;
+      max-width: 240px;
+    }
+    span {
+      padding-top: 10px;
+      // padding-bottom: 16px;
+    }
+  }
+  .clear {
+    // padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .Hobby-container {
+    margin-top: 10px;
+    // padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  // background-color: greenyellow;
+}
+.title-container {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-right: 16px;
+}
+.left-container-info {
+  flex-direction: column;
+  // justify-content: space-around;
+  // background-color: aqua;
+  min-height: 170px;
+  .infoMember-container {
+    // background-color: orange;
+    justify-content: space-between;
+    line-height: 0.9;
+    margin-top: 20px;
+    padding-bottom: 16px;
+  }
+  .dateSocial-container {
+    // background-color: red;
+    width: 70%;
+  }
+  .date-container {
+    margin-right: 25px;
+  }
+}
+.bio-container {
+  margin-top: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}

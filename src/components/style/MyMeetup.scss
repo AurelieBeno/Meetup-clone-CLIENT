@@ -1,0 +1,96 @@
+.Mymeetup-container {
+  // background-color: orange;
+  text-align: center;
+  font-family: "FuturaPTWeb-Bold";
+  letter-spacing: 1.3px;
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  .MymeetupBorder {
+    margin: 0 auto;
+    border-bottom: 1px solid black;
+  }
+  .MyMeetup-list-container {
+    // background-color: blue;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 5px;
+    // text-align: justify;
+    .listName {
+      font-weight: 600;
+      font-size: 1.9rem;
+      font-family: "FuturaPTWeb-Bold";
+      margin: 10px 0;
+    }
+    .listDescription {
+      text-align: justify;
+      margin: 13px 0;
+      font-family: "FuturaPTWeb-Book";
+      font-size: 1.65rem;
+      @media (min-width: 520px) {
+        text-align: center;
+      }
+    }
+  }
+  .listInscrit {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.54);
+    text-align: start;
+    margin: 10px 0px;
+    @media (min-width: 520px) {
+      text-align: center;
+    }
+  }
+}
+
+/* .Mymeetup-container {
+  font-family: "Roboto";
+  padding: 0 40px;
+}
+
+.Mymeetup-container h2 {
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+.MymeetupBorder {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  /* width: 65%; */
+/* }
+
+@media (max-width: 370px) {
+  .listDescription {
+    width: 100%;
+    background-color: orangered;
+  }
+  .MymeetupBorder {
+    width: 100%;
+  } */
+/* .listInscrit {
+    font-size: 20px;
+  } */
+/*  */
+/* 
+.MyMeetup-list-container {
+  list-style: none;
+}
+.listName {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+.listDescription {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: start;
+  padding: 5px;
+  background-color: blue;
+}
+.listInscrit {
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.54);
+  letter-spacing: 0.5px;
+} */

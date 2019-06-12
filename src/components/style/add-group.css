@@ -1,0 +1,55 @@
+.GroupDetails-container,
+.personalDetails-container {
+  height: 100%;
+}
+
+.GroupDetails-container form,
+.personalDetails-container form {
+  margin-top: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.GroupDetails-container form h1,
+.personalDetails-container form h1 {
+  margin: 0 auto;
+  font-family: "FuturaPTWeb-Book";
+  font-size: 1.7rem;
+  letter-spacing: 1.2px;
+  padding-bottom: 20px;
+}
+
+.GroupDetails-container form label,
+.personalDetails-container form label {
+  font-family: "FuturaPTWeb-Bold";
+  margin: 10px auto;
+  font-size: 0.9rem;
+}
+
+.GroupDetails-container form input,
+.personalDetails-container form input {
+  padding: 10px 0;
+  text-align: center;
+  border: 1px solid #868585;
+  border-radius: 50px;
+}
+
+.GroupDetails-container form button,
+.personalDetails-container form button {
+  padding: 7px 0;
+  width: 50%;
+  background-color: orange;
+  margin: 20px auto;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-family: "FuturaPTWeb-Book";
+  letter-spacing: 1.2px;
+}
+/*# sourceMappingURL=add-group.css.map */

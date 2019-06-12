@@ -1,0 +1,38 @@
+@import "colours.scss";
+
+.searchBar-container {
+  background-color: #0f1721;
+  height: 10vh;
+  padding-left: 10px;
+
+  .dropdow {
+    @include flexCenter(row, center);
+    height: 10vh;
+  }
+  .dropdow {
+    @media (max-width: 470px) {
+      @include flexCenter(column, center);
+    }
+  }
+
+  #Form {
+    // background-color: orange;
+    width: 100%;
+  }
+  input {
+    padding: 5px 0;
+    border-radius: 9px;
+    width: 55%;
+    text-align: center;
+    margin-right: 3px;
+    @media (max-width: 470px) {
+      width: 80%;
+    }
+  }
+
+  label {
+    color: $white;
+    font-family: "FuturaPTWeb-Book";
+    font-size: 1.06rem;
+  }
+}

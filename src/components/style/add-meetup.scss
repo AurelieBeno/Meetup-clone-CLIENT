@@ -1,0 +1,42 @@
+.checkbox {
+  width: 100px;
+  color: orange;
+  font-size: 30px;
+}
+.add-meetup {
+  form {
+    margin-top: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    h2 {
+      margin: 0 auto;
+      font-family: "FuturaPTWeb-Book";
+      font-size: 1.7rem;
+      letter-spacing: 1.2px;
+      padding-bottom: 20px;
+    }
+    label {
+      font-family: "FuturaPTWeb-Bold";
+      margin: 10px auto;
+      font-size: 0.9rem;
+    }
+    input {
+      padding: 10px 0;
+      text-align: center;
+      border: 1px solid rgb(134, 133, 133);
+      border-radius: 50px;
+    }
+    button {
+      padding: 7px 0;
+      width: 50%;
+      background-color: orange;
+      margin: 20px auto;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-family: "FuturaPTWeb-Book";
+      letter-spacing: 1.2px;
+    }
+  }
+}

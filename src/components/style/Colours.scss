@@ -1,0 +1,214 @@
+//
+@media only screen and (min-width: 840px) {
+  :root {
+    --mediaScale: 1.25;
+    --responsiveMedia-xs: 20px;
+    --responsiveMedia-s: 30px;
+    --responsiveMedia-m: 45px;
+    --responsiveMedia-l: 60px;
+    --responsiveMedia-xl: 90px;
+    --responsiveMedia-xxl: 150px;
+  }
+}
+@media only screen and (min-width: 640px) {
+  :root {
+    --mediaScale: 1.125;
+    --responsiveMedia-xs: 18px;
+    --responsiveMedia-s: 27px;
+    --responsiveMedia-m: 40px;
+    --responsiveMedia-l: 54px;
+    --responsiveMedia-xl: 81px;
+    --responsiveMedia-xxl: 135px;
+  }
+}
+@media only screen and (min-width: 840px) {
+  :root {
+    --responsive-space: 20px;
+  }
+}
+@media only screen and (min-width: 640px) {
+  :root {
+    --responsive-space: 18px;
+  }
+}
+:root {
+  --responsive-space: 16px;
+  --mediaScale: 1;
+  --responsiveMedia-xs: 16px;
+  --responsiveMedia-s: 24px;
+  --responsiveMedia-m: 36px;
+  --responsiveMedia-l: 48px;
+  --responsiveMedia-xl: 72px;
+  --responsiveMedia-xxl: 120px;
+}
+@media only screen and (min-width: 840px) {
+  :root {
+    --media-xs: 20px;
+    --media-s: 30px;
+    --media-m: 45px;
+    --media-l: 60px;
+    --media-xl: 90px;
+    --media-xxl: 150px;
+    --responsive-space: 20px;
+  }
+}
+@media only screen and (min-width: 640px) {
+  :root {
+    --media-xs: 18px;
+    --media-s: 27px;
+    --media-m: 40px;
+    --media-l: 54px;
+    --media-xl: 81px;
+    --media-xxl: 135px;
+    --responsive-space: 18px;
+  }
+}
+//
+
+$white: #fff !default;
+$black: #6c757d;
+
+// font size de base
+$font-size-base: 1rem !default; // equals `16px`
+$font-size-tiny: 12px;
+$font-size-small: 14px;
+$font-size-normal: 16px;
+$font-size-section-title: 20px;
+$font-size-kicker: 14px;
+$font-size-display-3: 28px;
+$font-size-display-2: 32px;
+$font-size-display-1: 42px;
+$size-font-small: 0.75;
+$size-font-medium: 1;
+$size-font-large: 2;
+$size-font-base: 1;
+$size-space-default: 16px;
+$size-space-double: 32px;
+$size-space-half: 10px;
+$size-space-quarter: 5px;
+$size-space-quadruple: 64px;
+$size-space-large-default: 20px;
+$size-space-large-double: 40px;
+$size-space-large-half: 10px;
+$size-space-large-quarter: 5px;
+$size-space-large-quadruple: 80px;
+
+$font-weight-normal: 400;
+$font-weight-regular: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+
+// Display flex
+
+@mixin flexCenter($direction, $content) {
+  display: flex;
+  justify-content: $content;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+$font-family-basic: "FuturaPTWeb-Book";
+$font-family-extra: "FuturaPTWeb-ExtraBold";
+$font-family-heavy: "FuturaPTWeb-Heavy";
+$font-family-normal: "Graphik Meetup", -apple-system,
+  BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+$font-family-mono: Monaco, "Andale Mono", "Courier New",
+  monospace;
+// couleurs
+$color-merlot: #7a1d47;
+$color-meetup-red: #ff1154;
+$color-peach: #f65858;
+$color-marigold: #ffad43;
+$color-indigo: #00455d;
+$color-viridian: #0098ab;
+$color-beach: #97cad1;
+$color-old-gold: #947f5f;
+$color-white: #fff;
+$color-alert-red: #c80000;
+$color-beach-highlight: #f7feff;
+$color-tooltip-blue: #3679e4;
+$color-gray-1: #f6f7f8;
+$color-gray-2: #e6e6e6;
+$color-gray-3: #d9d9d9;
+$color-gray-4: #c5c4c4;
+$color-gray-5: #a2a2a2;
+$color-gray-6: #585858;
+$color-gray-7: #212121;
+$color-font-base: #f6f7f8;
+$color-font-secondary: #c5c4c4;
+$color-font-tertiary: #212121;
+// autre couleurs
+
+$c-white: #fff;
+$c-lightGray: #f6f7f8;
+$c-mediumGray: #757575;
+$c-darkGray: #353e48;
+$c-coolGrayLight: #e4e9ed;
+$c-coolGrayLightTransp: rgba(41, 77, 107, 0.12);
+$c-coolGrayMedium: #979fa4;
+$c-coolGrayMediumTransp: rgba(84, 96, 107, 0.6);
+$c-red: #f13a59;
+$c-darkRed: #d32d4a;
+$c-pink: #ff99d1;
+$c-yellow: #ffe533;
+$c-lightBlue: #4dd1ed;
+$c-purple: #371eac;
+$c-blue: #00a2c7;
+$c-plum: #7000b0;
+$c-orange: #ff5b0f;
+$c-teal: #00d480;
+$c-shamrock: #59db33;
+$c-black: #0f1721;
+$c-facebook: #3b5998;
+$c-twitter: #3cf;
+$c-linkedin: #4875b4;
+$c-tumblr: #2b4964;
+$c-flickr: #fe0883;
+$c-foursquare: #0cbadf;
+$c-googleplus: #c63d2d;
+$c-googleplusbutton: #fff;
+$c-instagram: #4e433c;
+$c-reddit: #cee3f8;
+$c-wepay: #4891dc;
+$c-yahoo: #7b0099;
+$c-outlook: #0072c6;
+$c-textPrimary: #2e3e48;
+$c-textSecondary: rgba(46, 62, 72, 0.6);
+$c-textTertiary: rgba(46, 62, 72, 0.35);
+$c-textHint: rgba(46, 62, 72, 0.35);
+$c-textDisabled: rgba(46, 62, 72, 0.12);
+$c-textPrimaryInverted: #fff;
+$c-textSecondaryInverted: hsla(0, 0%, 100%, 0.7);
+$c-textTertiaryInverted: hsla(0, 0%, 100%, 0.35);
+$c-textHintInverted: hsla(0, 0%, 100%, 0.35);
+$c-textDisabledInverted: hsla(0, 0%, 100%, 0.12);
+$c-attention: #ff5b0f;
+$c-success: #00d480;
+$c-border: rgba(46, 62, 72, 0.12);
+$c-borderDark: rgba(46, 62, 72, 0.54);
+$c-borderInverted: hsla(0, 0%, 100%, 0.2);
+$c-borderDarkInverted: hsla(0, 0%, 100%, 0.7);
+$c-separator: rgba(46, 62, 72, 0.26);
+$c-highlight: rgba(0, 0, 255, 0.05);
+$c-selection: rgba(46, 62, 72, 0.05);
+$c-dimmingOverlay: rgba(46, 62, 72, 0.4);
+$c-tappable: rgba(56, 56, 15, 0.09);
+$c-tappableInverted: rgba(255, 246, 196, 0.27);
+$c-contentBG: #fff;
+$c-contentBGInverted: #0f1721;
+$c-collectionBG: #f6f7f8;
+
+$font-line-height-tiny: 1.5;
+$font-line-height-small: 1.43;
+$font-line-height-normal: 1.5;
+$font-line-height-section-title: 1.4;
+$font-line-height-kicker: 1.57;
+$font-line-height-display-3: 1.29;
+$font-line-height-display-2: 1.19;
+$font-line-height-display-1: 1.24;
+
+a,
+button {
+  color: inherit;
+  text-decoration: none;
+}
