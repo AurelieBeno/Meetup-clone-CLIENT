@@ -1,9 +1,35 @@
 import React, { Component } from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
+
+import { profilInfo } from "../api.js";
+
 import "../style/my-profil.scss";
 
+function getGroupAdress(group) {
+  return `/group/${group._id}`;
+}
 class MyProfile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { myInfo: [] };
+  }
+  componentDidMount() {
+    profilInfo().then(response => {
+      console.log("Response BE my profil", response.data);
+      this.setState({ myInfo: response.data.userInfo });
+    });
+  }
+
   render() {
+    const myInfo = this.state.myInfo;
+    console.log(
+      "my info ",
+      " ",
+      myInfo.map(el => el.followGroup)
+      // .followGroup.map(el => "coucou" + el)
+      // .map(i => i.followGroup).map(el => el.groupName)
+    );
     return (
       <section className='myProfil-container'>
         <div className='profil-container--margin flex container'>
@@ -41,24 +67,45 @@ class MyProfile extends Component {
             </div>
             <div className='group-info-container'>
               <div className='titleG-container'>
-                <h2>Member de 3 Meetups</h2>
-                <span>
+                <h2>
+                  Vous êtes membre de{" "}
+                  {myInfo.map(el => el.followGroup.length)}{" "}
+                  groupes
+                </h2>
+                <p>
                   Masquer mes groupes Meetup sur mon profil
-                </span>
+                </p>
               </div>
               <div className='Group-icon-container'>
                 <div className='left-side-container'>
-                  <ul>
-                    <li>
-                      <p>Group name</p>
-                      <p>Membre</p>
-                    </li>
-                    <li>
-                      <p>IronHack Paris</p>
-                    </li>
-                    <p>Membre</p>
-                  </ul>
+                  {myInfo.map(el => {
+                    return (
+                      <ul>
+                        {el.followGroup.map((infoG, id) => {
+                          return (
+                            <li
+                              key={id}
+                              className='grouplist'
+                            >
+                              <Link
+                                to={getGroupAdress(infoG)}
+                              >
+                                <h4 className='groupName'>
+                                  {infoG.groupName}
+                                </h4>
+                              </Link>
+
+                              <span className='groupStatus'>
+                                Member
+                              </span>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    );
+                  })}
                 </div>
+
                 <div className='right-side-container' />
               </div>
             </div>

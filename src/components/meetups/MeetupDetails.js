@@ -12,7 +12,7 @@ import {
 import "../style/meetupDetails.scss";
 
 // import Meetuptest from "./MeetupTest.js";
-import LikesAndCommentBar from "./LikesAndCommentBar.js";
+import LikesBtnBar from "./LikesBtnBar.js";
 import ModalConfirm from "./ModalConfirm.js";
 
 function getGroupAdress(group) {
@@ -213,7 +213,7 @@ class MeetupDetails extends Component {
                           ) : (
                             <div>
                               <div className='flex-item rsvpIndicator-button--border'>
-                                <LikesAndCommentBar
+                                <LikesBtnBar
                                   liked={this.state.isClick}
                                   // allLikers={postItem.likedBy}
                                   // commentBox={event => this.showCommentBox(event)}

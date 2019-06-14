@@ -40,6 +40,10 @@ export function addMeetup(newMeetupSubmission) {
     .catch(errorHandler);
 }
 
+export function profilInfo() {
+  return backendApi.get("/api/my-profil");
+}
+
 export function createGroup(newGroupSubmission) {
   return backendApi
     .post(`/api/create-group`, newGroupSubmission)

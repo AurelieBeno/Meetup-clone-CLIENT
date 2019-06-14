@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import moment from "moment";
 import "../style/Evenement.scss";
+import BtnC from "../Btn-custom";
+import LikesBtn from "../meetups/LikesBtnBar";
 
 class Evenement extends Component {
   constructor(props) {
@@ -15,11 +17,7 @@ class Evenement extends Component {
 
   render() {
     const eventArr = this.state.allEvent;
-    // let result = eventArr.map(el => ({
-    //   name: JSON.stringify(el.name),
-    //   description: JSON.stringify(el.description),
-    //   date: JSON.stringify(el.eventDate)
-    // }));
+
     return (
       <section className='eventPage-container'>
         <div>
@@ -58,6 +56,21 @@ class Evenement extends Component {
                             participant
                           </div>
                           <div className='btn-add-container'>
+                            {/* <LikesBtn
+                              currentUser={
+                                this.props.currentUser
+                              }
+                              meetupArray={
+                                this.props.meetupArray
+                                  .meetupInfo
+                              }
+                            >
+                              <span
+                              // onClick={this.props.addlike()}
+                              >
+                                Participer
+                              </span>
+                            </LikesBtn> */}
                             <button
                               // onClick={event =>
                               //   this.props.addLike(event)
@@ -70,14 +83,6 @@ class Evenement extends Component {
                             >
                               <span>Participer</span>
                             </button>
-                            {/* <button
-                              data-swarm='default'
-                              data-swarm-size='default'
-                              data-icon='left'
-                              data-swarm-width='grow'
-                            >
-                              <span> Participer </span> */}
-                            {/* </button> */}
                           </div>
                         </div>
                       </li>

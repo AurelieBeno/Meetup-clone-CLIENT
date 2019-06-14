@@ -78,7 +78,9 @@ class GroupDetails extends Component {
                     <span className='member-span'>
                       <i className='fas fa-user-friends' />
                     </span>
-                    <span>1002 membres</span>
+                    <span>
+                      {item.member.length} membres
+                    </span>
                   </div>
                   <div className='ownerInfo'>
                     <span className='owner-span'>
@@ -113,6 +115,9 @@ class GroupDetails extends Component {
                                 }
                                 currentUser={
                                   this.state.currentUser
+                                }
+                                meetupArray={
+                                  this.state.meetupArray
                                 }
                               />
                             </div>
@@ -163,6 +168,9 @@ class GroupDetails extends Component {
                             this.props.currentUser
                           }
                           groupInfo={this.state.groupArray}
+                          meetupArray={
+                            this.props.meetupArray
+                          }
                         />
                       );
                     }}

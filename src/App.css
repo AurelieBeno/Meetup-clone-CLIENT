@@ -52,3 +52,18 @@ html {
   display: flex;
   width: 90%;
 } */
+.Group-icon-container {
+  padding: 10px 0;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+}
+.grouplist {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.groupStatus {
+  font-size: 1.7rem;
+}

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
-// import AddButton from "../../images/likeempty.png";
-// import redButton from "../../images/likefullred.png";
 import "../style/likeAndComment.scss";
 
-class LikesAndComment extends Component {
+class LikesBtn extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -54,4 +52,4 @@ class LikesAndComment extends Component {
   }
 }
 
-export default LikesAndComment;
+export default LikesBtn;

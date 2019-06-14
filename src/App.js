@@ -109,6 +109,16 @@ class App extends Component {
               );
             }}
           />
+          {/* <Route
+            path=''
+            render={() => {
+              return (
+                <groupFollowList
+                  currentUser={this.state.currentUser}
+                />
+              );
+            }}
+          /> */}
           <Route
             path='/login'
             render={() => {
