@@ -4,7 +4,7 @@ import { Link, Switch, Route } from "react-router-dom";
 // import MyMeetup from "./meetups/MyMeetup";
 // import { getLogOut } from "./api.js";
 import "./style/Navbar.scss";
-import groupFollowList from "./group/Group--follow";
+import GroupFollowList from "./group/Group--follow";
 
 class Navbar extends Component {
   constructor(props) {
@@ -59,13 +59,12 @@ class Navbar extends Component {
                   <div className='leftSide'>
                     <ul>
                       <li>
-                        <groupFollowList
+                        <GroupFollowList
                           currentUser={
-                            this.state.currentUser
+                            this.props.currentUser
                           }
                         />
-
-                        {/* <Link
+                        <Link
                           onClick={() =>
                             this.handleToggleSetting()
                           }
@@ -73,7 +72,7 @@ class Navbar extends Component {
                           to='/add-meetup'
                         >
                           Add new Meetup
-                        </Link> */}
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -136,12 +135,12 @@ class Navbar extends Component {
             </ul>
           </nav>
         )}
-        <Switch>
+        {/* <Switch>
           <Route
             path='/follow-group'
-            component={groupFollowList}
+            component={GroupFollowList}
           />
-        </Switch>
+        </Switch> */}
       </div>
     );
   }

@@ -12,7 +12,7 @@ import {
 import "../style/meetupDetails.scss";
 
 // import Meetuptest from "./MeetupTest.js";
-import LikesBtnBar from "./LikesBtnBar.js";
+import LikesBtn from "./LikeBtn";
 import ModalConfirm from "./ModalConfirm.js";
 
 function getGroupAdress(group) {
@@ -95,7 +95,7 @@ class MeetupDetails extends Component {
       goto,
       showModal
     } = this.state;
-    console.log("goto event state", " ", goto);
+    const myGo = goto.map(i => i);
     return (
       <section className='meetupDetails-container'>
         <div className='eventPageHead stripe'>
@@ -196,12 +196,10 @@ class MeetupDetails extends Component {
                         </p>
                       </div>
                       <div className='flex flex--row flex--spaceBetween'>
-                        {console.log(goto)}
-
-                        {goto.map(i => {
-                          return i[0] === "yes" ? (
+                        {myGo.map(i => {
+                          console.log(i);
+                          return i.length > 0 ? (
                             <div>
-                              {console.log("Coucou" + i)}
                               <span>
                                 Vous etes deja inscrit
                               </span>
@@ -213,7 +211,7 @@ class MeetupDetails extends Component {
                           ) : (
                             <div>
                               <div className='flex-item rsvpIndicator-button--border'>
-                                <LikesBtnBar
+                                <LikesBtn
                                   liked={this.state.isClick}
                                   // allLikers={postItem.likedBy}
                                   // commentBox={event => this.showCommentBox(event)}
