@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // import MyMeetup from "./meetups/MyMeetup";
 // import { getLogOut } from "./api.js";

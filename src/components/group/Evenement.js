@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import moment from "moment";
 import "../style/Evenement.scss";
-import BtnC from "../Btn-custom";
-import LikesBtn from "../meetups/LikeBtn";
+// import BtnC from "../Btn-custom";
+// import LikesBtn from "../meetups/LikeBtn";
 
 class Evenement extends Component {
   constructor(props) {

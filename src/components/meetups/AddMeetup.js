@@ -69,8 +69,6 @@ class AddMeetup extends Component {
             <select
               name='group'
               onChange={e => this.handleChange(e)}
-
-              // value={this.state.group}
             >
               <option />
               {groupInfo.map(item => {

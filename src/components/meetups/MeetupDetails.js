@@ -61,7 +61,6 @@ class MeetupDetails extends Component {
       post: this.state.meetupArray,
       liker: this.props.currentUser.userDoc._id
     };
-    // const { params } = this.props.postInfo.match;
 
     postGotToEvent(addLike).then(response => {
       console.log("response to like: ", response.data);

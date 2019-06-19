@@ -1,64 +1,10 @@
 import React, { Component } from "react";
 
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import "../style/Modal.scss";
 import posed from "react-pose";
 
-const Section = posed.section({
-  open: {
-    transition: { ease: "easeInOut", duration: 1400 },
-    x: 0,
-    delayChildre: 0,
-    straggerChildre: 200,
-    opacity: 1,
-    delay: 0
-  },
-  closed: {
-    x: 10,
-    delay: 0,
-    opacity: 0
-  }
-});
-
-//Animations
-const Div = posed.div({
-  open: {
-    transition: { ease: "easeOut", duration: 1400 },
-    y: 0,
-    opacity: 1,
-    x: 0
-  },
-  closed: { y: 0, opacity: 0, x: 20 }
-});
-const H1 = posed.h1({
-  open: {
-    transition: { ease: "easeOut", duration: 2000 },
-    y: 0,
-    opacity: 1,
-    x: 0
-  },
-  closed: { y: 0, opacity: 0, x: 30 }
-});
-const P = posed.p({
-  open: {
-    transition: { ease: "easeOut", duration: 2000 },
-    y: 0,
-    opacity: 1,
-    x: 0
-  },
-  closed: { y: 0, opacity: 0, x: 0 }
-});
-
-const Footer = posed.footer({
-  open: {
-    transition: { ease: "easeOut", duration: 1000 },
-    y: 0,
-    opacity: 1,
-    x: 0
-  },
-  closed: { y: 0, opacity: 0, x: 40 }
-});
 const ButtonWrap = posed.div({
   open: {
     transition: { ease: "easeOut", duration: 1500 },
@@ -102,14 +48,14 @@ class ButtonGroup extends Component {
       //     <div>SHOW MODAL FC OK</div>
       //   )} */}
       // </section>
-      <section pose={isOpen ? "open" : "closed"}>
+      <section>
         <div className='container'>
           <div className='row'>
             {/* <H1>
               <span>coucou </span>
             </H1>
             <P>c'est un test </P> */}
-            <ButtonWrap>
+            <ButtonWrap pose={isOpen ? "open" : "closed"}>
               <button
                 className='btn--modal'
                 // variant='primary'

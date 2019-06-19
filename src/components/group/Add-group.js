@@ -2,7 +2,67 @@ import React, { Component } from "react";
 
 import { Redirect } from "react-router-dom";
 import { createGroup } from "../api";
+import posed from "react-pose";
 import("../style/add-group.scss");
+
+const Div = posed.div({
+  visible: {
+    transition: { ease: "easeIn", duration: 1400 },
+    y: 0,
+    opacity: 1,
+    x: 0,
+    delayChildren: 250,
+    staggerChildren: 200
+  },
+  closed: { y: 0, opacity: 0, x: 20 }
+});
+const Btn = posed.button({
+  visible: {
+    transition: { ease: "easeOut", duration: 2000 },
+    y: 0,
+    opacity: 1,
+    x: 0
+  },
+  closed: {
+    transition: { ease: "easeOut", duration: 1200 },
+    y: 0,
+    opacity: 0,
+    x: 120
+  }
+});
+const Div2 = posed.div({
+  open: {
+    transition: { ease: [0.01, 0.64, 0.99, 0.56] },
+    // transition: { ease: "easeIn", duration: 1400 },
+    opacity: 1,
+    y: 0,
+    x: 0,
+    delayChildren: 250,
+    staggerChildren: 200
+  },
+  closed: {
+    transition: { ease: "easeOut", duration: 1200 },
+    y: 0,
+    opacity: 0,
+    x: 120
+  }
+});
+const Desc = posed.div({
+  open: {
+    transition: { ease: [0.01, 0.64, 0.99, 0.56] },
+
+    // transition: { ease: "easeOut", duration: 5000 },
+    y: 0,
+    opacity: 1,
+    x: 0
+  },
+  closed: {
+    transition: { ease: "easeIn", duration: 1400 },
+    opacity: 0,
+    y: 0,
+    x: 0
+  }
+});
 
 class AddGroup extends Component {
   constructor(props) {
@@ -40,9 +100,12 @@ class AddGroup extends Component {
     });
   }
 
+  componentDidMount() {
+    this.setState({ isVisible: true });
+  }
   render() {
     const { currentUser } = this.props;
-    const { isShow } = this.state;
+    const { isShow, isVisible, showStore } = this.state;
 
     // const { groupName, category, description } = this.state;
     return this.state.isSubmitSuccessful ? (
@@ -59,7 +122,10 @@ class AddGroup extends Component {
         <div>
           <span>Etape 1 de 4</span>
         </div>
-        <div className='form-container GroupDetails-container'>
+        <Div
+          pose={isVisible ? "visible" : null}
+          className='form-container GroupDetails-container'
+        >
           <form
             onSubmit={event => this.handleSubmit(event)}
           >
@@ -72,19 +138,23 @@ class AddGroup extends Component {
               value={this.state.groupName}
               onChange={this.handleChange}
             />
-            <button
+            <Btn
               onClick={e => this.togglenext(e)}
-              style={{
-                display: this.state.showStore
-                  ? "block"
-                  : "none"
-              }}
+              // style={{
+              //   display: this.state.showStore
+              //     ? "block"
+              //     : "none"
+              // }}
+              pose={showStore ? "visible" : "closed"}
             >
               next
-            </button>
+            </Btn>
             {this.state.isShow && (
-              <div className='second'>
-                <div className='description-container'>
+              <Div2
+                pose={isShow ? "open" : "closed"}
+                className='second'
+              >
+                <Desc className='description-container'>
                   <label>
                     <h2> description</h2>
                   </label>
@@ -94,7 +164,7 @@ class AddGroup extends Component {
                     value={this.state.description}
                     onChange={e => this.handleChange(e)}
                   />
-                </div>
+                </Desc>
                 <div className='category-container'>
                   <label>
                     <h2> category</h2>
@@ -106,11 +176,11 @@ class AddGroup extends Component {
                     onChange={e => this.handleChange(e)}
                   />
                 </div>
-              </div>
+              </Div2>
             )}
             <button>Save this group</button>
           </form>
-        </div>
+        </Div>
       </section>
     );
   }
