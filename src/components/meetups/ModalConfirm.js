@@ -5,7 +5,10 @@ class ModalConfirm extends Component {
   render() {
     return (
       <section className='modal '>
-        <div className={this.props.like ? "open" : "close"}>
+        <div
+          className='modal--margin'
+          // className={this.props.like ? "open" : "close"}
+        >
           <div className='modal-window'>
             <div className='modal-header'>
               Confirmation

@@ -60,7 +60,7 @@
       border: 1px solid rgba(0, 0, 0, 0.3);
       border-radius: 5px;
       height: 60px;
-      width: 100%;
+      width: 80%;
     }
   }
 }
@@ -68,4 +68,56 @@
   @include flexCenter(column, center);
   padding-bottom: 20px;
   text-transform: capitalize;
+  label {
+    animation-duration: 3s;
+    animation-name: slidein;
+  }
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+
+    to {
+      margin-left: 50%;
+      width: 100%;
+    }
+  }
+}
+.description-container {
+  label {
+    animation-duration: 3s;
+    animation-name: slidein;
+  }
+  textarea {
+    // animation-delay: 1s;
+    animation-duration: 3s;
+    animation-name: slideinarea;
+  }
+  @keyframes slideinarea {
+    from {
+      margin-left: 100%;
+      border-color: #d01031;
+      opacity: 0;
+    }
+    // 75% {
+    //   margin-left: 80%;
+    //   border-color: black;
+    // }
+    100% {
+      margin-left: 50%;
+      border-radius: 3px;
+    }
+  }
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+
+    to {
+      margin-left: 50%;
+      width: 100%;
+    }
+  }
 }

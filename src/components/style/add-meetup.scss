@@ -1,3 +1,4 @@
+@import "transition.scss";
 .checkbox {
   width: 100px;
   color: orange;
@@ -8,35 +9,75 @@
     margin-top: 20px;
     margin-right: 5px;
     margin-left: 5px;
+    position: absolute;
     display: flex;
     flex-direction: column;
     h2 {
       margin: 0 auto;
-      font-family: "FuturaPTWeb-Book";
+      font-family: "Roboto", sans-serif;
       font-size: 1.7rem;
       letter-spacing: 1.2px;
       padding-bottom: 20px;
     }
     label {
-      font-family: "FuturaPTWeb-Bold";
+      font-family: "Roboto", sans-serif;
       margin: 10px auto;
-      font-size: 0.9rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1.2px;
     }
     input {
       padding: 10px 0;
       text-align: center;
       border: 1px solid rgb(134, 133, 133);
-      border-radius: 50px;
+      border-radius: 10px;
+    }
+    textarea {
+      border-radius: 10px;
+      font-size: 20px;
+      border: 1px solid rgb(134, 133, 133);
     }
     button {
       padding: 7px 0;
       width: 50%;
-      background-color: orange;
       margin: 20px auto;
       border-radius: 50px;
-      font-size: 1.1rem;
-      font-family: "FuturaPTWeb-Book";
+      font-size: 1.7rem;
+      font-family: "Roboto", sans-serif;
       letter-spacing: 1.2px;
     }
   }
+}
+.react-calendar__month-view__days {
+  button {
+    border-radius: 999px;
+    border: 1px solid blue;
+    font-size: 18px;
+    :hover {
+      font-size: 24px;
+      transition: ease;
+      transition-duration: 80ms;
+      font-weight: bold;
+    }
+  }
+}
+.react-calendar__month-view__weekdays {
+  margin-left: 14px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.description--container {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.event--container {
+  label {
+    position: relative;
+    top: 18px;
+    margin-top: 0px;
+  }
+}
+.intro {
+  animation-duration: 3s;
+  animation-name: enterRight;
 }

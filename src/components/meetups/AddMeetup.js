@@ -1,8 +1,16 @@
 import React, { Component } from "react";
-// import Calendar from "react-calendar";
+import Calendar from "react-calendar/dist/entry.nostyle";
+import moment from "moment";
+import {
+  Modal,
+  Button,
+  ModalTitle,
+  ModalBody,
+  ModalFooter
+} from "react-bootstrap";
+
 import { Redirect } from "react-router-dom";
 import { addMeetup, getUserInfo } from "../api.js";
-
 import "../style/add-meetup.scss";
 
 class AddMeetup extends Component {
@@ -16,10 +24,11 @@ class AddMeetup extends Component {
       eventDate: new Date(),
       isSubmitSuccessful: false,
       userInfo: [],
-      groupInfo: []
-
-      // date: new Date()
+      groupInfo: [],
+      showModal: false
     };
+    this.handleClose = this.handleClose.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
   }
   componentDidMount() {
     getUserInfo().then(response => {
@@ -37,23 +46,38 @@ class AddMeetup extends Component {
 
   handleAddMeetup(event) {
     event.preventDefault();
-    // this.props.updUsr();
-    // Send this.state to the backend of SAVING
+
     addMeetup(this.state).then(response => {
       console.log("Add Meetup", response.data);
       // Update the state for our redirect
       this.setState({
-        isSubmitSuccessful: true
+        isSubmitSuccessful: true,
+        showModal: false
       });
     });
   }
 
+  onChange = eventDate => {
+    this.setState({ eventDate });
+  };
+
+  handleToggle() {
+    this.setState({ showModal: true });
+  }
+  handleClose() {
+    this.setState({ showModal: false });
+  }
+
   render() {
     const { currentUser } = this.props;
-    const { userInfo, groupInfo } = this.state;
+    const {
+      userInfo,
+      groupInfo,
+      showModal,
+      name,
+      description
+    } = this.state;
     JSON.stringify(userInfo);
-
-    console.log(groupInfo);
 
     return this.state.isSubmitSuccessful ? (
       <Redirect to='meetup' />
@@ -88,23 +112,75 @@ class AddMeetup extends Component {
             value={this.state.name}
             onChange={e => this.handleChange(e)}
           />
-          <label>Description:</label>
-          <textarea
-            name='description'
-            value={this.state.description}
-            onChange={e => this.handleChange(e)}
-          />
-          <label>Date event:</label>
-          <input
-            type='date'
-            name='eventDate'
-            value={this.state.eventDate}
-            onChange={e => this.handleChange(e)}
-          />
-          {/* <Calendar onChange={this.handleChange} value={this.state.eventDate} /> */}
+          <div className='description--container flex flex-column'>
+            <label>Description:</label>
+            <textarea
+              name='description'
+              value={this.state.description}
+              onChange={e => this.handleChange(e)}
+            />
+          </div>
+          <div className='event--container flex flex-column'>
+            <label>Date event:</label>
 
-          <button>Save this meetup</button>
+            <Calendar
+              onChange={this.onChange}
+              value={this.state.eventDate}
+              name='eventDate'
+            />
+          </div>
+
+          <div onClick={() => this.handleToggle()}>
+            <h3>Save this meetup</h3>
+          </div>
         </form>
+        <Modal
+          show={this.state.showModal}
+          onHide={this.handleClose}
+          name={this.state.name}
+          description={this.state.description}
+          event={this.state.eventDate}
+        >
+          <Modal.Header closeButton>
+            <ModalTitle>
+              <h3>Confirmation</h3>
+            </ModalTitle>
+          </Modal.Header>
+          <ModalBody>
+            <div className='animated'>
+              <p>Nom de Meetup: </p>
+              <p className='intro'>{this.state.name}</p>
+            </div>
+            <div className='animated'>
+              <p> Votre description: </p>
+              <p className='enterRight'>
+                {this.state.description}
+              </p>
+            </div>
+            <div className='animated'>
+              <p>Date choisie: </p>
+              <p className='enterRight'>
+                {moment(this.state.eventDate).format(
+                  "DDD dd MMM"
+                )}
+              </p>
+            </div>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              variant='secondary'
+              onClick={this.handleClose}
+            >
+              Close
+            </Button>
+            <Button
+              variant='primary'
+              onClick={event => this.handleAddMeetup(event)}
+            >
+              Save Changes
+            </Button>
+          </ModalFooter>
+        </Modal>
       </div>
     );
   }

@@ -24,7 +24,9 @@ class Navbar extends Component {
       <div className='navBarContainer'>
         <div className='logoContainer'>
           <Link to='/' className='NoneLine redColor logo'>
-            MeetupCloneLogo
+            <div className='imageBc'>
+              {/* <img src='../' alt='logo' /> */}
+            </div>
           </Link>
           <div className='groupBtn '>
             <Link

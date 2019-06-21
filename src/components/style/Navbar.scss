@@ -66,10 +66,21 @@
   }
 }
 .logoContainer {
-  width: 50%;
+  // width: 50%;
   @include flexCenter(row, space-between);
   align-items: center;
   height: 80%;
+
+  .imageBc {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 10px;
+    background: url("../../parrot.png") no-repeat;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+  }
 }
 .groupBtn {
   height: 100%;

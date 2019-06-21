@@ -39,11 +39,13 @@ button {
 .modal {
   opacity: 1;
   position: fixed;
-  top: 50px;
-  left: 101px;
-  width: 50%;
-  height: 40%;
-  background: rgba(0, 0, 0, 0.6);
+  display: block !important;
+  top: 23%;
+  left: 14%;
+  width: 70%;
+  height: 58%;
+  background-color: rgba(231, 12, 23, 0.6);
+  border-radius: 10px;
   perspective: 100px;
   @include transition(opacity $duration ease-out);
 
@@ -56,9 +58,16 @@ button {
     }
   }
 }
-
+.modal--margin {
+  background-color: blue;
+  position: absolute;
+  height: 100%;
+  padding: 10px;
+  width: 100%;
+}
 .modal-window {
-  width: 400px;
+  height: 30%;
+  // width: 400px;
   position: relative;
   margin: 150px auto;
   background: #fff;
@@ -70,12 +79,12 @@ button {
     transform $duration ease-out,
     opacity $duration ease-out
   );
-  opacity: 0;
+  // opacity: 0;
 }
 
 .modal-header {
   position: relative;
-  background: #ce522f;
+  // background: #ce522f;
   color: #fff;
   font-weight: 700;
   padding: 10px 20px;
