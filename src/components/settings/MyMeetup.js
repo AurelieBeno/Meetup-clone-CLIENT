@@ -24,9 +24,7 @@ const MyMeetup = props => {
     <React.Fragment>
       <section className='Mymeetup-container'>
         <h2> My meetup </h2>
-        <div
-        // className="MymeetupBorder"
-        >
+        <div>
           {myArray.map(item => {
             return (
               <ul className='MyMeetup-list-container MymeetupBorder '>
@@ -70,7 +68,7 @@ const MyMeetup = props => {
                 </li>
               </ul>
             );
-          })}{" "}
+          })}
         </div>
       </section>
     </React.Fragment>
