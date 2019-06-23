@@ -16,7 +16,6 @@ import "../style/add-meetup.scss";
 const AddMeetup = props => {
   const [meetupName, setMeetupName] = useState("");
   const [description, setDescription] = useState("");
-  const [createdBy, setCreateBy] = useState("");
 
   const [eventDate, setEventDate] = useState(new Date());
   const [
@@ -27,11 +26,6 @@ const AddMeetup = props => {
   const [group, setGroup] = useState([]);
   const [userInfo, setUserInfo] = useState([]);
   const [groupInfo, setGroupInfo] = useState([]);
-  //   this.handleClose = this.handleClose.bind(this);
-  //   this.handleToggle = this.handleToggle.bind(this);
-  // }
-
-  // const groupArray = setGroup([...group]);
 
   const handleAddMeetup = event => {
     event.preventDefault();
@@ -57,12 +51,12 @@ const AddMeetup = props => {
     });
   }, []);
 
-  // handleToggle() {
-  //   this.setState({ showModal: true });
-  // }
-  // handleClose() {
-  //   this.setState({ showModal: false });
-  // }
+  const handleToggle = event => {
+    setShowModal(!showModal);
+  };
+  const handleClose = event => {
+    setShowModal(!showModal);
+  };
 
   return isSubmitSuccessful ? (
     <Redirect to='meetup' />
@@ -119,17 +113,16 @@ const AddMeetup = props => {
             />
           </div>
 
-          <div
-          // onClick={() => this.handleToggle()}
-          >
-            <button>Save this meetup</button>
+          <div>
+            <p onClick={e => handleToggle(e)}>
+              Save this meetup
+            </p>
           </div>
         </form>
       </div>
-
-      {/* <Modal
+      <Modal
         show={showModal}
-        onHide={this.handleClose}
+        onHide={handleClose}
         name={meetupName}
         description={description}
         event={eventDate}
@@ -181,22 +174,20 @@ const AddMeetup = props => {
             <ModalFooter>
               <Button
                 variant='secondary'
-                onClick={this.handleClose}
+                onClick={e => handleClose(e)}
               >
                 Close
               </Button>
               <Button
                 variant='primary'
-                onClick={event =>
-                  handleAddMeetup(event)
-                }
+                onClick={event => handleAddMeetup(event)}
               >
                 Valider l'événement
               </Button>
             </ModalFooter>
           </div>
         )}
-      </Modal> */}
+      </Modal>
     </div>
   );
 };
