@@ -42,24 +42,9 @@ class MeetupList extends Component {
 
   render() {
     const { meetupArray } = this.state;
-    // console.log(
-    //   "**********hello meetupArray.meetup************"
-    // );
 
-    // console.log(eventDates, " :event dates");
     return (
       <section className='meetupList-container'>
-        {/* {eventDates.map(date => {
-          return (
-            <section>
-              <div>
-                {moment(date).format("dddd DD MMMM")}
-              </div>
-
-              <div />
-            </section>
-          );
-        })} */}
         <div>
           <div className='list-wrapper'>
             {meetupArray.map((item, index) => {
