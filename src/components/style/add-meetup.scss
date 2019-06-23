@@ -48,10 +48,12 @@
     }
   }
 }
+.react-calendar {
+  line-height: 1.125em;
+}
 .react-calendar__month-view__days {
   button {
-    border-radius: 999px;
-    border: 1px solid blue;
+    // border-radius: 999px;
     font-size: 18px;
     :hover {
       font-size: 24px;
@@ -62,20 +64,27 @@
   }
 }
 .react-calendar__month-view__weekdays {
-  margin-left: 14px;
-  font-size: 25px;
+  // margin-left: 14px;
+  font-size: 15px;
   font-weight: bold;
+}
+.react-calendar__navigation {
+  width: auto;
+  height: auto;
+}
+.react-calendar__navigation__label {
+  line-height: 1.4;
 }
 .description--container {
   margin-top: 20px;
   margin-bottom: 10px;
 }
 .event--container {
-  label {
-    position: relative;
-    top: 18px;
-    margin-top: 0px;
-  }
+  // label {
+  //   position: relative;
+  //   top: 18px;
+  //   margin-top: 0px;
+  // }
 }
 .intro {
   animation-duration: 3s;

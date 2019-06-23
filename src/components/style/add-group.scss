@@ -1,9 +1,14 @@
 @import "Colours.scss";
+
 .GroupDetails-container,
 .personalDetails-container {
   height: 100%;
   font-family: "Roboto", sans-serif;
-
+  letter-spacing: 1.5px;
+  .add-group-title-container {
+    text-align: center;
+    margin-top: 10px;
+  }
   form {
     // background-color: blue;
     margin-top: 20px;

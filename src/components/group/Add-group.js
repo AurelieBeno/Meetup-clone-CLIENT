@@ -112,16 +112,16 @@ class AddGroup extends Component {
       <Redirect to='meetup' />
     ) : (
       <section className='addGroup-container GroupDetails-container'>
-        <div>
+        <div className='add-group-title-container'>
           <h1> Créer un groupe Meetup</h1>
           <p>
             Nous vous aiderons à trouver les bonnes
             personnes pour votre groupe.
           </p>
         </div>
-        <div>
+        {/* <div>
           <span>Etape 1 de 4</span>
-        </div>
+        </div> */}
         <Div
           pose={isVisible ? "visible" : null}
           className='form-container GroupDetails-container'

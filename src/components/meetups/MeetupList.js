@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import moment from "moment";
+import { Calendar } from "react-calendar";
 import { Link } from "react-router-dom";
 
 import { getMeetupList } from "../api.js";
 import "../style/MeetupList.scss";
+import MyCalendar from "../settings/MyCalendar.js";
 
 // returns the dynamic URL for phone details
 function getMeetupAddress(meetup) {
@@ -134,9 +136,11 @@ class MeetupList extends Component {
               );
             })}
           </div>
-          ); })}
         </div>{" "}
-        */}
+        <div className='calendar-container'>
+          <MyCalendar eventDate={this.state.eventDates} />
+          {/* <Calendar showNeighboringMonth={false}  /> */}
+        </div>
       </section>
     );
   }

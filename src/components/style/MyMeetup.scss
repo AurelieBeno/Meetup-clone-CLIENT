@@ -1,7 +1,7 @@
 .Mymeetup-container {
   // background-color: orange;
   text-align: center;
-  font-family: "FuturaPTWeb-Bold";
+  font-family: "Roboto" sans-serif;
   letter-spacing: 1.3px;
   h2 {
     font-size: 1.8rem;
@@ -20,13 +20,33 @@
     .listName {
       font-weight: 600;
       font-size: 1.9rem;
-      font-family: "FuturaPTWeb-Bold";
+      font-family: "Roboto" sans-serif;
       margin: 10px 0;
+      display: flex;
+      flex-direction: column;
+      .edit-container {
+        letter-spacing: 1.7px;
+        padding: 5px;
+        cursor: pointer;
+        // margin: 5px;
+        :hover {
+          font-weight: bold;
+        }
+      }
+      span {
+        font-size: 1.2rem;
+        padding: 6px;
+        word-spacing: 15px;
+
+        border: 1px solid black;
+        border-radius: 5px;
+        width: fit-content;
+      }
     }
     .listDescription {
       text-align: justify;
       margin: 13px 0;
-      font-family: "FuturaPTWeb-Book";
+      font-family: "Roboto", sans-serif;
       font-size: 1.65rem;
       @media (min-width: 520px) {
         text-align: center;

@@ -1,41 +1,34 @@
 import React, { Component } from "react";
-import axios from "axios";
+
+import { editEvent } from "../api.js";
 
 class EditMeetup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.theMeetup.title,
-      description: this.props.theMeetup.description
+      newName: this.props.Name,
+      description: this.props.Description,
+      eventId: this.props.Item,
+      isSubmitSuccessful: false
     };
   }
 
   handleFormSubmit = event => {
-    const title = this.state.title;
+    const name = this.state.title;
     const description = this.state.description;
 
     event.preventDefault();
-
-    axios
-      .put(`http:localhost:5000/api/meetups/${this.props.theMeetup._id}`, {
-        title,
-        description
-      })
-      .then(() => {
-        this.props.getTheMeetup();
-      })
-      .catch(error => console.log(error));
   };
 
   handleFormSubmit = event => {
     this.setState({
-      title: event.target.value
+      name: event.target.value
     });
   };
 
   handleChangeTitle = event => {
     this.setState({
-      title: event.target.value
+      newName: event.target.value
     });
   };
 
@@ -44,27 +37,44 @@ class EditMeetup extends Component {
       description: event.target.value
     });
   };
+
+  handleEditEvent(event) {
+    event.preventDefault();
+
+    editEvent(this.state).then(response => {
+      console.log("Edit Meetup", response.data);
+      // Update the state for our redirect
+      this.setState({
+        isSubmitSuccessful: true
+        // showModal: false
+      });
+    });
+  }
+
   render() {
     return (
       <div>
         <hr />
         <h3> Edit form</h3>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Title : </label>
+
+        <form
+          onSubmit={event => this.handleEditEvent(event)}
+        >
+          <label>Name : </label>
           <input
-            type="text"
-            name="title"
-            value={this.state.title}
+            type='text'
+            name='title'
+            value={this.state.newName}
             onChange={e => this.handleChangeTitle(e)}
           />
           <label>Description</label>
           <textarea
-            name="description"
+            name='description'
             value={this.state.description}
             onChange={e => this.handleChangeDesc(e)}
           />
 
-          <input type="submit" value="submit" />
+          <input type='submit' value='submit' />
         </form>
       </div>
     );

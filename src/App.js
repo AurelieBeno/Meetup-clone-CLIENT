@@ -17,7 +17,7 @@ import {
 import HomePage from "./components/HomePage";
 // import Footer from "./components/Footer";
 import AddMeetup from "./components/meetups/AddMeetup";
-import MyMeetup from "./components/meetups/MyMeetup";
+import MyMeetup from "./components/settings/MyMeetup";
 import AddGroup from "./components/group/Add-group";
 import GroupDetails from "./components/group/Group-details";
 import MyProfile from "./components/settings/MyProfile";
@@ -72,7 +72,10 @@ class App extends Component {
     const value = e.target.value;
     console.log("hello" + value);
   }
-
+  handleEditInfo(e) {
+    const value = e.target.value;
+    console.log("hello handleEditInfo", value);
+  }
   memberGroup() {
     console.log("member demande happen");
     postMemberDde().then(response => console.log(response));
@@ -109,16 +112,6 @@ class App extends Component {
               );
             }}
           />
-          {/* <Route
-            path=''
-            render={() => {
-              return (
-                <groupFollowList
-                  currentUser={this.state.currentUser}
-                />
-              );
-            }}
-          /> */}
           <Route
             path='/login'
             render={() => {
@@ -178,6 +171,7 @@ class App extends Component {
               return (
                 <MyMeetup
                   currentUser={this.state.currentUser}
+                  edit={e => this.handleEditInfo(e)}
                   // updUsr={user => this.updateUser(user)}
                 />
               );

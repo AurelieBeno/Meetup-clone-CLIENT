@@ -76,6 +76,12 @@ export function getUserInfo() {
     .get("/api/add-meetup")
     .catch(errorHandler);
 }
+
+export function editEvent(change) {
+  return backendApi
+    .post("/api/edit-meetup", change)
+    .catch(errorHandler);
+}
 // export function getProductByGender() {
 //   return backendApi.get("/api/product/gender").catch(errorHandler);
 // }

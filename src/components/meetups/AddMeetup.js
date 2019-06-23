@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Calendar from "react-calendar/dist/entry.nostyle";
+import React, { useState, useEffect } from "react";
+import Calendar from "react-calendar";
 import moment from "moment";
 import {
   Modal,
@@ -13,91 +13,80 @@ import { Redirect } from "react-router-dom";
 import { addMeetup, getUserInfo } from "../api.js";
 import "../style/add-meetup.scss";
 
-class AddMeetup extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      description: "",
-      createdBy: "",
-      group: "",
-      eventDate: new Date(),
-      isSubmitSuccessful: false,
-      userInfo: [],
-      groupInfo: [],
-      showModal: false
-    };
-    this.handleClose = this.handleClose.bind(this);
-    this.handleToggle = this.handleToggle.bind(this);
-  }
-  componentDidMount() {
-    getUserInfo().then(response => {
-      console.log("USERinfo CDM", response.data);
-      this.setState({
-        userInfo: response.data.user,
-        groupInfo: response.data.group
-      });
-    });
-  }
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+const AddMeetup = props => {
+  const [meetupName, setMeetupName] = useState("");
+  const [description, setDescription] = useState("");
+  const [createdBy, setCreateBy] = useState("");
 
-  handleAddMeetup(event) {
+  const [eventDate, setEventDate] = useState(new Date());
+  const [
+    isSubmitSuccessful,
+    setIsSubmitSuccessful
+  ] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [group, setGroup] = useState([]);
+  const [userInfo, setUserInfo] = useState([]);
+  const [groupInfo, setGroupInfo] = useState([]);
+  //   this.handleClose = this.handleClose.bind(this);
+  //   this.handleToggle = this.handleToggle.bind(this);
+  // }
+
+  // const groupArray = setGroup([...group]);
+
+  const handleAddMeetup = event => {
     event.preventDefault();
-
-    addMeetup(this.state).then(response => {
+    addMeetup({
+      description,
+      name: meetupName,
+      eventDate,
+      group
+    }).then(response => {
       console.log("Add Meetup", response.data);
       // Update the state for our redirect
-      this.setState({
-        isSubmitSuccessful: true,
-        showModal: false
-      });
+      setIsSubmitSuccessful(true);
+      // setShowModal(false);
+      // this.setState({
     });
-  }
-
-  onChange = eventDate => {
-    this.setState({ eventDate });
   };
+  useEffect(() => {
+    console.log("info is comming");
+    getUserInfo().then(response => {
+      console.log("USERinfo CDM", response.data);
+      setUserInfo(response.data.user);
+      setGroupInfo(response.data.group);
+    });
+  }, []);
 
-  handleToggle() {
-    this.setState({ showModal: true });
-  }
-  handleClose() {
-    this.setState({ showModal: false });
-  }
+  // handleToggle() {
+  //   this.setState({ showModal: true });
+  // }
+  // handleClose() {
+  //   this.setState({ showModal: false });
+  // }
 
-  render() {
-    const { currentUser } = this.props;
-    const {
-      userInfo,
-      groupInfo,
-      showModal,
-      name,
-      description
-    } = this.state;
-    JSON.stringify(userInfo);
-
-    return this.state.isSubmitSuccessful ? (
-      <Redirect to='meetup' />
-    ) : (
-      <div className='add-meetup'>
-        <h2>Add a meetup {currentUser.userDoc.fullName}</h2>
-        <form
-          onSubmit={event => this.handleAddMeetup(event)}
-        >
+  return isSubmitSuccessful ? (
+    <Redirect to='meetup' />
+  ) : (
+    <div className='add-meetup'>
+      <div>
+        <h2>
+          Add a meetup {props.currentUser.userDoc.fullName}
+        </h2>
+        <form onSubmit={event => handleAddMeetup(event)}>
           <label>
             <h2>Where do you want to create ? </h2>
-
             <select
               name='group'
-              onChange={e => this.handleChange(e)}
+              onChange={e => setGroup(e.target.value)}
             >
               <option />
+
               {groupInfo.map(item => {
                 return (
-                  <option value={item.groupName}>
+                  <option
+                    value={item.groupName}
+                    key={item._id}
+                  >
                     {item.groupName}
                   </option>
                 );
@@ -109,81 +98,107 @@ class AddMeetup extends Component {
           <input
             type='text'
             name='name'
-            value={this.state.name}
-            onChange={e => this.handleChange(e)}
+            value={meetupName}
+            onChange={e => setMeetupName(e.target.value)}
           />
           <div className='description--container flex flex-column'>
             <label>Description:</label>
             <textarea
               name='description'
-              value={this.state.description}
-              onChange={e => this.handleChange(e)}
+              value={description}
+              onChange={e => setDescription(e.target.value)}
             />
           </div>
           <div className='event--container flex flex-column'>
             <label>Date event:</label>
 
             <Calendar
-              onChange={this.onChange}
-              value={this.state.eventDate}
+              onChange={e => setEventDate(e)}
+              value={eventDate}
               name='eventDate'
             />
           </div>
 
-          <div onClick={() => this.handleToggle()}>
-            <h3>Save this meetup</h3>
+          <div
+          // onClick={() => this.handleToggle()}
+          >
+            <button>Save this meetup</button>
           </div>
         </form>
-        <Modal
-          show={this.state.showModal}
-          onHide={this.handleClose}
-          name={this.state.name}
-          description={this.state.description}
-          event={this.state.eventDate}
-        >
-          <Modal.Header closeButton>
-            <ModalTitle>
-              <h3>Confirmation</h3>
-            </ModalTitle>
-          </Modal.Header>
-          <ModalBody>
-            <div className='animated'>
-              <p>Nom de Meetup: </p>
-              <p className='intro'>{this.state.name}</p>
-            </div>
-            <div className='animated'>
-              <p> Votre description: </p>
-              <p className='enterRight'>
-                {this.state.description}
-              </p>
-            </div>
-            <div className='animated'>
-              <p>Date choisie: </p>
-              <p className='enterRight'>
-                {moment(this.state.eventDate).format(
-                  "DDD dd MMM"
-                )}
-              </p>
-            </div>
-          </ModalBody>
-          <ModalFooter>
-            <Button
-              variant='secondary'
-              onClick={this.handleClose}
-            >
-              Close
-            </Button>
-            <Button
-              variant='primary'
-              onClick={event => this.handleAddMeetup(event)}
-            >
-              Save Changes
-            </Button>
-          </ModalFooter>
-        </Modal>
       </div>
-    );
-  }
-}
+
+      {/* <Modal
+        show={showModal}
+        onHide={this.handleClose}
+        name={meetupName}
+        description={description}
+        event={eventDate}
+      >
+        {!meetupName || !description ? (
+          <div>
+            <h2>
+              <span>
+                Merci de saisir les informations manquantes.
+                <p>
+                  <span>
+                    {!meetupName
+                      ? "Il manque le nom"
+                      : null}
+                  </span>
+                  <br />
+                  <span>
+                    {!description
+                      ? "il manque la description"
+                      : null}
+                  </span>
+                </p>
+              </span>
+            </h2>
+          </div>
+        ) : (
+          <div>
+            <Modal.Header closeButton>
+              <ModalTitle>
+                <h3>Confirmation</h3>
+              </ModalTitle>
+            </Modal.Header>
+            <ModalBody>
+              <div className='animated'>
+                <p>Nom de Meetup: </p>
+                <p className='intro'>{meetupName}</p>
+              </div>
+              <div className='animated'>
+                <p> Votre description: </p>
+                <p className='enterRight'>{description}</p>
+              </div>
+              <div className='animated'>
+                <p>Date choisie: </p>
+                <p className='enterRight'>
+                  {moment(eventDate).format("DDD ddd MMM")}
+                </p>
+              </div>
+            </ModalBody>
+            <ModalFooter>
+              <Button
+                variant='secondary'
+                onClick={this.handleClose}
+              >
+                Close
+              </Button>
+              <Button
+                variant='primary'
+                onClick={event =>
+                  handleAddMeetup(event)
+                }
+              >
+                Valider l'événement
+              </Button>
+            </ModalFooter>
+          </div>
+        )}
+      </Modal> */}
+    </div>
+  );
+};
 
 export default AddMeetup;
